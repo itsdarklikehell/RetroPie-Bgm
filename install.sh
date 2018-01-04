@@ -22,7 +22,7 @@ sudo nano /etc/rc.local
 
 FINAL_TEST(){
 echo "Final 'test' phase..."
-sudo python $WORKINGDIR/Bgm-Player.py & 
+bash $WORKINGDIR/start-player.sh &
 #emulationstation
 }
 }
@@ -34,10 +34,11 @@ sudo apt-get install $DEPS -y
 
 SETUP_ES_MENU(){
 echo "Setting up EmulationStation menu options..."
-git clone git clone --depth=1 https://github.com/itsdarklikehell/RetroPie-Bgm/disable-playbbback.sh $WORKINGDIR
-git clone git clone --depth=1 https://github.com/itsdarklikehell/RetroPie-Bgm/reenable-playbbback.sh $WORKINGDIR
-#cp $WORKINGDIR/disable-playbbback.sh 
-#cp $WORKINGDIR/reenable-playbbback.sh 
+
+
+mkdir -p /opt/retropie/configs/bgm
+cp $WORKINGDIR/emulatos.cfg
+
 }
 
 ############
