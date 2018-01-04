@@ -36,9 +36,9 @@ SETUP_ES_MENU(){
 echo "Setting up EmulationStation menu options...(STILL WIP)..."
 mkdir -p /opt/retropie/configs/bgm
 cp $WORKINGDIR/es_systems.cfg /opt/retropie/configs/bgm/es_systems.cfg
-cp $WORKINGDIR/emulatos.cfg /opt/retropie/configs/bgm/emulatos.cfg
+cp $WORKINGDIR/emulatos.cfg /opt/retropie/configs/bgm/emulators.cfg
 echo "Please edit /opt/retropie/configs/bgm/es_systems.cfg so that is includes the following:"
-cat $WORKINGDIR/es_systems.cfg | echo
+echo $(cat $WORKINGDIR/es_systems.cfg)
 read -rsp $'Press any key to continue...\n' -n 1 key
 # echo $key
 }
