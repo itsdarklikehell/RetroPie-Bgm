@@ -1,4 +1,5 @@
 #!/bin/bash
+# TODO: Make a theme for emulationstation for it.
 CONFIGURE(){
 WORKINGDIR=/home/pi/RetroPie-Bgm
 
@@ -30,7 +31,6 @@ INSTDEPS(){
 echo "Installing dependecies..."
 sudo apt-get install $DEPS -y
 }
-
 
 SETUP_ES_MENU(){
 echo "Setting up EmulationStation menu options...(STILL WIP)..."
