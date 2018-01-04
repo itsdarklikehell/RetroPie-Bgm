@@ -1,2 +1,2 @@
 #!/bin/bash
-rm $pwd/DisableMusic &
+rm /home/pi/RetroPie-Bgm/DisableMusic &
