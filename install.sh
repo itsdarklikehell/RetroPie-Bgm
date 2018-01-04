@@ -32,14 +32,6 @@ sudo apt-get install $DEPS -y
 }
 
 
-
-GET_SCRIPT(){
-echo "Getting the script..."
-git clone git clone --depth=1 https://github.com/itsdarklikehell/RetroPie-Bgm/Bgm-Player.py 
-CREATE_MUSICDIR
-ENABLEATBOOT
-}
-
 SETUP_ES_MENU(){
 echo "Setting up EmulationStation menu options..."
 git clone git clone --depth=1 https://github.com/itsdarklikehell/RetroPie-Bgm/disable-playbbback.sh $WORKINGDIR
@@ -51,5 +43,6 @@ git clone git clone --depth=1 https://github.com/itsdarklikehell/RetroPie-Bgm/re
 ############
 CONFIGURE
 INSTDEPS
-#GET_SCRIPT
+CREATE_MUSICDIR
+ENABLEATBOOT
 FINAL_TEST
