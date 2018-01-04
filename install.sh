@@ -27,9 +27,7 @@ sudo apt-get install $DEPS -y
 
 GET_SCRIPT(){
 echo "Getting the script..."
-git clone git clone --depth=1 https://github.com/itsdarklikehell/
-
-
+git clone git clone --depth=1 https://github.com/itsdarklikehell/RetroPie-Bgm/Bgm-Player.py 
 ENABLEATBOOT
 }
 
