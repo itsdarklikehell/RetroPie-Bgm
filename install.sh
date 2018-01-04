@@ -33,12 +33,14 @@ sudo apt-get install $DEPS -y
 
 
 SETUP_ES_MENU(){
-echo "Setting up EmulationStation menu options..."
-
-
+echo "Setting up EmulationStation menu options...(STILL WIP)..."
 mkdir -p /opt/retropie/configs/bgm
-cp $WORKINGDIR/emulatos.cfg
-
+cp $WORKINGDIR/es_systems.cfg /opt/retropie/configs/bgm/es_systems.cfg
+cp $WORKINGDIR/emulatos.cfg /opt/retropie/configs/bgm/emulatos.cfg
+echo "Please edit /opt/retropie/configs/bgm/es_systems.cfg so that is includes the following:"
+cat $WORKINGDIR/es_systems.cfg | echo
+read -rsp $'Press any key to continue...\n' -n 1 key
+# echo $key
 }
 
 ############
@@ -46,4 +48,5 @@ CONFIGURE
 INSTDEPS
 CREATE_MUSICDIR
 ENABLEATBOOT
+SETUP_ES_MENU
 FINAL_TEST
