@@ -54,7 +54,7 @@ THEME(){
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo "Installing custom emulationstation theme...(STILL WIP)"
 echo " = = = = = = = = = = = = = = = = = = = = "
-CURNTHEME="/etc/emulationstation/carbon"
+CURNTHEME="/etc/emulationstation/themes/carbon"
 NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
 NEWART="$WORKINGDIR/bgm/art"
 cp -R $CURNTHEME $NEWTHEME
@@ -62,7 +62,7 @@ cp -R $NEWART $NEWTHEME/bgm/art
 cp -R $WORKINGDIR/bgm/theme.xml $NEWTHEME/bgm/theme.xml
 echo "A new cutom theme has been set up at $NEWTHEME"
 echo "Select it in emulationstation to use it"
-read -rsp $'Press any key to continue...\n'-n 1 key
+read -rsp $'Press any key to continue...\n' -n 1 key
 }
 ############
 CONFIGURE
