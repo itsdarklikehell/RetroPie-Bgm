@@ -1,5 +1,5 @@
 #!/bin/bash
-# TODO: Make a theme for emulationstation for it.
+# TODO: Make a theme and controls from within emulationstation for it.
 CONFIGURE(){
 WORKINGDIR=/home/pi/RetroPie-Bgm
 
@@ -40,6 +40,7 @@ SETUP_ES_MENU(){
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo "Setting up EmulationStation menu options...(STILL WIP)..."
 echo " = = = = = = = = = = = = = = = = = = = = "
+cp -R $WORKINGDIR/bgm /opt/retropie/configs/all/emulationstation/themes/carbon-custom/bgm
 mkdir -p /opt/retropie/configs/bgm
 cp $WORKINGDIR/es_systems.cfg /opt/retropie/configs/bgm/es_systems.cfg
 cp $WORKINGDIR/emulators.cfg /opt/retropie/configs/bgm/emulators.cfg
@@ -49,10 +50,25 @@ cat $WORKINGDIR/es_systems.cfg
 echo " = = = = = = = = = = = = = = = = = = = = "
 read -rsp $'Press any key to continue...\n' -n 1 key
 }
+THEME(){
+echo " = = = = = = = = = = = = = = = = = = = = "
+echo "Installing custom emulationstation theme...(STILL WIP)"
+echo " = = = = = = = = = = = = = = = = = = = = "
+CURNTHEME="/etc/emulationstation/carbon"
+NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
+NEWART="$WORKINGDIR/bgm/art"
+cp -R $CURNTHEME $NEWTHEME
+cp -R $NEWART $NEWTHEME/bgm/art
+cp -R $WORKINGDIR/bgm/theme.xml $NEWTHEME/bgm/theme.xml
+echo "A new cutom theme has been set up at $NEWTHEME"
+echo "Select it in emulationstation to use it"
+read -rsp $'Press any key to continue...\n'-n 1 key
+}
 ############
 CONFIGURE
 INSTDEPS
 CREATE_MUSICDIR
 ENABLEATBOOT
 SETUP_ES_MENU
+THEME
 FINAL_TEST
