@@ -2,6 +2,9 @@
 This will add background music while in emulation station on RetroPie (and possibly other debian systems)
 Ive added a theme for emulationstation and control scripts (read/edit the install.sh script in case you use a custom theme and want to add the theme to it).
 
+## 11-01-2018 - system menu and theme support added 
+edit /opt/retropie/configs/all/emulationstation/es_systems.cfg and add the contents of bgm/es_systems.cfg to it.
+}
 
 ## credits and more info go to:
 livewire from the retropie forum:
