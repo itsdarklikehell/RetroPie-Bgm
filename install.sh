@@ -38,7 +38,7 @@ sudo apt-get install $DEPS -y
 }
 SETUP_ES_MENU(){
 echo " = = = = = = = = = = = = = = = = = = = = "
-echo "Setting up EmulationStation menu options...(STILL WIP)..."
+echo "Setting up EmulationStation menu options..."
 echo " = = = = = = = = = = = = = = = = = = = = "
 cp -R $WORKINGDIR/bgm /opt/retropie/configs/all/emulationstation/themes/carbon-custom/bgm
 mkdir -p /opt/retropie/configs/bgm
@@ -52,7 +52,7 @@ read -rsp $'Press any key to continue...\n' -n 1 key
 }
 THEME(){
 echo " = = = = = = = = = = = = = = = = = = = = "
-echo "Installing custom emulationstation theme...(STILL WIP)"
+echo "Installing custom emulationstation theme..."
 echo " = = = = = = = = = = = = = = = = = = = = "
 CURNTHEME="/etc/emulationstation/themes/carbon"
 NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
