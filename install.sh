@@ -1,7 +1,7 @@
 #!/bin/bash
 # TODO: Make a theme and controls from within emulationstation for it.
 CONFIGURE(){
-WORKINGDIR=/home/pi/RetroPie-Bgm
+WORKINGDIR=/home/pi/Retropie-Bgm
 
 #######################
 DEPS="python-pygame"
@@ -46,7 +46,7 @@ cp $WORKINGDIR/es_systems.cfg /opt/retropie/configs/bgm/es_systems.cfg
 cp $WORKINGDIR/emulators.cfg /opt/retropie/configs/bgm/emulators.cfg
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo "Please edit /opt/retropie/configs/bgm/es_systems.cfg so that is includes the following:"
-cat $WORKINGDIR/es_systems.cfg
+cat $WORKINGDIR/bgm/es_systems.cfg
 echo " = = = = = = = = = = = = = = = = = = = = "
 read -rsp $'Press any key to continue...\n' -n 1 key
 }
