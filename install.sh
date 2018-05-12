@@ -1,7 +1,7 @@
 #!/bin/bash
 # TODO: Make a theme and controls from within emulationstation for it.
 CONFIGURE(){
-WORKINGDIR=/home/pi/Retropie-Bgm
+WORKINGDIR=/home/pi/RetroPie-Bgm
 
 #######################
 DEPS="python-pygame"
