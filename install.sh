@@ -40,10 +40,10 @@ SETUP_ES_MENU(){
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo "Setting up EmulationStation menu options..."
 echo " = = = = = = = = = = = = = = = = = = = = "
-cp -u $WORKINGDIR/bgm /opt/retropie/configs/all/emulationstation/themes/carbon-custom/bgm
+cp -ru $WORKINGDIR/bgm /opt/retropie/configs/all/emulationstation/themes/carbon-custom/bgm
 mkdir -p /opt/retropie/configs/bgm
-cp $WORKINGDIR/es_systems.cfg /opt/retropie/configs/bgm/es_systems.cfg
-cp $WORKINGDIR/emulators.cfg /opt/retropie/configs/bgm/emulators.cfg
+cp -ru $WORKINGDIR/es_systems.cfg /opt/retropie/configs/bgm/es_systems.cfg
+cp -ru $WORKINGDIR/emulators.cfg /opt/retropie/configs/bgm/emulators.cfg
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo "Please edit /opt/retropie/configs/bgm/es_systems.cfg so that is includes the following:"
 cat $WORKINGDIR/bgm/es_systems.cfg
@@ -57,9 +57,9 @@ echo " = = = = = = = = = = = = = = = = = = = = "
 CURNTHEME="/etc/emulationstation/themes/carbon"
 NEWTHEME="/opt/retropie/configs/all/emulationstation/themes/carbon-custom"
 NEWART="$WORKINGDIR/bgm/art"
-cp -u $CURNTHEME $NEWTHEME
-cp -u $NEWART $NEWTHEME/bgm/art
-cp -u $WORKINGDIR/bgm/theme.xml $NEWTHEME/bgm/theme.xml
+cp -ru $CURNTHEME $NEWTHEME
+cp -ru $NEWART $NEWTHEME/bgm/art
+cp -ru $WORKINGDIR/bgm/theme.xml $NEWTHEME/bgm/theme.xml
 echo "A new cutom theme has been set up at $NEWTHEME"
 echo "Select it in emulationstation to use it"
 read -rsp $'Press any key to continue...\n' -n 1 key
