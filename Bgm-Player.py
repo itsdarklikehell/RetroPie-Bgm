@@ -31,7 +31,7 @@ while not esStarted:
 	pids = [pid for pid in os.listdir('/proc') if pid.isdigit()]
 	for pid in pids:
 		try:
-			procname = open(os.path.join('/proc',pid,'comm'),'rb').read()
+			procname = open(os.path.join('/proc',pid,'comm'),'r').read()
 			if procname[:-1] == "emulationstatio": # Emulation Station's actual process name is apparently short 1 letter.
 				esStarted=True
 		except IOError:	
@@ -46,7 +46,7 @@ if startdelay > 0:
 pids = [pid for pid in os.listdir('/proc') if pid.isdigit()]
 for pid in pids:
 	try:
-		procname = open(os.path.join('/proc',pid,'comm'),'rb').read()
+		procname = open(os.path.join('/proc',pid,'comm'),'r').read()
 		if procname[:-1] == "omxplayer" or procname[:-1] == "omxplayer.bin": # Looking for a splash screen!
 			while os.path.exists('/proc/'+pid):
 				time.sleep(1) #OMXPlayer is running, sleep 1 to prevent the need for a splash.
@@ -69,7 +69,7 @@ while True:
 		pids = [pid for pid in os.listdir('/proc') if pid.isdigit()]
 		for pid in pids:
 			try:
-				procname = open(os.path.join('/proc',pid,'comm'),'rb').read()
+				procname = open(os.path.join('/proc',pid,'comm'),'r').read()
 				if procname[:-1] == "emulationstatio": # Emulation Station's actual process name is apparently short 1 letter.
 					esStarted=True # Will cause us to break out of the loop because ES is now running.
 			except IOError:	
@@ -77,12 +77,12 @@ while True:
 				
 	#Check to see if the DisableMusic file exists; if it does, stop doing everything!
 	if os.path.exists('/home/pi/RetroPie-Bgm/DisableMusic'):
-		print "DisableMusic found!"
+		print("DisableMusic found!")
 		if mixer.music.get_busy():
 			mixer.music.stop();
 		while (os.path.exists('/home/pi/RetroPie-Bgm/DisableMusic')):
 			time.sleep(15)
-		print "DisableMusic gone!"
+		print("DisableMusic gone!")
 
 	if not mixer.music.get_busy(): # We aren't currently playing any music
 		while currentsong == lastsong and len(bgm) > 1:	#If we have more than one BGM, choose a new one until we get one that isn't what we just played.
@@ -92,7 +92,7 @@ while True:
 		lastsong=currentsong
 		mixer.music.set_volume(maxvolume) # Pygame sets this to 1.0 on new song; in case max volume -isnt- 1, set it to max volume.
 		mixer.music.play()
-		print "BGM Now Playing: " + song
+		print("BGM Now Playing: " + song)
 		
 	#Emulator check
 	pids = [pid for pid in os.listdir('/proc') if pid.isdigit()] 
@@ -100,14 +100,14 @@ while True:
 	esStarted=False #New check 4-23-16 - set this to False (assume ES is no longer running until proven otherwise)
 	for pid in pids:
 		try:
-			procname = open(os.path.join('/proc',pid,'comm'),'rb').read()
+			procname = open(os.path.join('/proc',pid,'comm'),'r').read()
 			if procname[:-1] == "emulationstatio": # Killing 2 birds with one stone, while we look for emulators, make sure EmulationStation is still running.
 					esStarted=True # And turn it back to True, because it wasn't done running.  This will prevent the loop above from stopping the music.
 			
 			if procname[:-1] in emulatornames: #If the process name is in our list of known emulators
 				emulator = pid;
 				#Turn down the music
-				print "Emulator found! " + procname[:-1] + " Muting the music..."
+				print("Emulator found! " + procname[:-1] + " Muting the music...")
 				while volume > 0:
 					volume = volume - volumefadespeed
 					if volume < 0:
@@ -122,7 +122,7 @@ while True:
 				while os.path.exists("/proc/" + pid):
 					time.sleep(1); # Delay 1 second and check again.
 				#Turn up the music
-				print "Emulator finished, resuming audio..."
+				print("Emulator finished, resuming audio...")
 				if not restart:
 					mixer.music.unpause() #resume
 					while volume < maxvolume: 
@@ -131,7 +131,7 @@ while True:
 							volume=maxvolume
 						mixer.music.set_volume(volume);
 						time.sleep(0.05)				
-				print "Restored."
+				print("Restored.")
 				volume=maxvolume # ensures that the volume is manually set (if restart is True, volume would be at zero)
 
 		except IOError: #proc has already terminated, ignore.
@@ -140,4 +140,4 @@ while True:
 	time.sleep(1);
 	#end of the main while loop
 	
-print "An error has occurred that has stopped Test1.py from executing." #theoretically you should never get this far.
+print("An error has occurred that has stopped Test1.py from executing.") #theoretically you should never get this far.
