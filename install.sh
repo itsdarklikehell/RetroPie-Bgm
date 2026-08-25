@@ -11,7 +11,7 @@ echo "creating music dir in: ~/RetroPie/roms/music"
 mkdir -p ~/RetroPie/roms/music
 echo "please put some music in it..."
 echo " = = = = = = = = = = = = = = = = = = = = "
-read -rsp $'Press any key to continue...\n' -n 1 key
+read -rsp $'Press any key to continue...\n' -n 1
 }
 ENABLEATBOOT(){
 echo " = = = = = = = = = = = = = = = = = = = = "
@@ -19,7 +19,7 @@ echo "edit /etc/rc.local"
 echo "Above exit 0, put the following code:"
 echo "(sudo python $WORKINGDIR/Bgm-Player.py) &"
 echo " = = = = = = = = = = = = = = = = = = = = "
-read -rsp $'Press any key to continue...\n' -n 1 key
+read -rsp $'Press any key to continue...\n' -n 1
 sudo nano /etc/rc.local
 }
 
@@ -48,7 +48,7 @@ echo " = = = = = = = = = = = = = = = = = = = = "
 echo "Please edit /opt/retropie/configs/bgm/es_systems.cfg so that is includes the following:"
 cat $WORKINGDIR/bgm/es_systems.cfg
 echo " = = = = = = = = = = = = = = = = = = = = "
-read -rsp $'Press any key to continue...\n' -n 1 key
+read -rsp $'Press any key to continue...\n' -n 1
 }
 THEME(){
 echo " = = = = = = = = = = = = = = = = = = = = "
@@ -62,7 +62,7 @@ cp -ru $NEWART $NEWTHEME/bgm/art
 cp -ru $WORKINGDIR/bgm/theme.xml $NEWTHEME/bgm/theme.xml
 echo "A new cutom theme has been set up at $NEWTHEME"
 echo "Select it in emulationstation to use it"
-read -rsp $'Press any key to continue...\n' -n 1 key
+read -rsp $'Press any key to continue...\n' -n 1
 }
 ############
 CONFIGURE
