@@ -1,6 +1,7 @@
 import os
-import time
 import random
+import time
+
 #import pygame # if you don't have pygame: sudo apt-get install python-pygame
 #also that line is commented out as we import the mixer specifically a bit further down.
 
@@ -16,7 +17,8 @@ startsong = "" # if this is not blank, this is the EXACT, CaSeSeNsAtIvE filename
 bgm = [mp3 for mp3 in os.listdir(musicdir) if mp3[-4:] == ".mp3" or mp3[-4:] == ".ogg"] # Find everything that's .mp3 or .ogg
 lastsong = -1
 currentsong = -1
-from pygame import mixer # import PyGame's music mixer
+from pygame import mixer  # import PyGame's music mixer
+
 mixer.init() # Prep that bad boy up.
 random.seed()
 volume = maxvolume # Store this for later use to handle fading out.
@@ -34,7 +36,7 @@ while not esStarted:
 			procname = open(os.path.join('/proc',pid,'comm'),'r').read()
 			if procname[:-1] == "emulationstatio": # Emulation Station's actual process name is apparently short 1 letter.
 				esStarted=True
-		except IOError:	
+		except OSError:	
 			continue
 
 #ES Should be going, see if we need to delay our start
@@ -50,7 +52,7 @@ for pid in pids:
 		if procname[:-1] == "omxplayer" or procname[:-1] == "omxplayer.bin": # Looking for a splash screen!
 			while os.path.exists('/proc/'+pid):
 				time.sleep(1) #OMXPlayer is running, sleep 1 to prevent the need for a splash.
-	except IOError:	
+	except OSError:	
 		continue
 		
 #Check for a starting song
@@ -72,7 +74,7 @@ while True:
 				procname = open(os.path.join('/proc',pid,'comm'),'r').read()
 				if procname[:-1] == "emulationstatio": # Emulation Station's actual process name is apparently short 1 letter.
 					esStarted=True # Will cause us to break out of the loop because ES is now running.
-			except IOError:	
+			except OSError:	
 				continue
 				
 	#Check to see if the DisableMusic file exists; if it does, stop doing everything!
@@ -110,8 +112,7 @@ while True:
 				print("Emulator found! " + procname[:-1] + " Muting the music...")
 				while volume > 0:
 					volume = volume - volumefadespeed
-					if volume < 0:
-						volume=0
+					volume = max(volume, 0)
 					mixer.music.set_volume(volume);
 					time.sleep(0.05)			
 				if restart:
@@ -127,14 +128,13 @@ while True:
 					mixer.music.unpause() #resume
 					while volume < maxvolume: 
 						volume = volume + volumefadespeed;
-						if volume > maxvolume:
-							volume=maxvolume
+						volume = min(volume, maxvolume)
 						mixer.music.set_volume(volume);
 						time.sleep(0.05)				
 				print("Restored.")
 				volume=maxvolume # ensures that the volume is manually set (if restart is True, volume would be at zero)
 
-		except IOError: #proc has already terminated, ignore.
+		except OSError: #proc has already terminated, ignore.
 			continue
 
 	time.sleep(1);
