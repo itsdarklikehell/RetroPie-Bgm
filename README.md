@@ -15,3 +15,10 @@ Livewire
 Version 1.03: http://pastebin.com/7E9JiZGQ (4/23/16)
 
 Script's purpose was simple, play some background music whenever you're searching for a game inside Emulation Station. Long story short, it just watches for any emulator in the internal list "emulatornames" to be running, turns the music volume down, and waits for the emulator (or splashscreen) to exit before turning it back up.
+---
+
+## 🎥 Gource Visualization
+
+De ontwikkelhistorie van dit project in een film:
+
+<video src="https://raw.githubusercontent.com/itsdarklikehell/RetroPie-Bgm/master/gource.mp4" controls width="100%"></video>
