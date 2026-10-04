@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 # TODO: Make a theme and controls from within emulationstation for it.
 CONFIGURE(){
 WORKINGDIR=/home/pi/RetroPie-Bgm
@@ -17,7 +18,7 @@ ENABLEATBOOT(){
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo "edit /etc/rc.local"
 echo "Above exit 0, put the following code:"
-echo "(sudo python $WORKINGDIR/Bgm-Player.py) &"
+echo "(sudo python3 $WORKINGDIR/Bgm-Player.py) &"
 echo " = = = = = = = = = = = = = = = = = = = = "
 read -rsp $'Press any key to continue...\n' -n 1
 sudo nano /etc/rc.local
