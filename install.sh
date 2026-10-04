@@ -1,5 +1,6 @@
 #!/bin/bash
 # TODO: Make a theme and controls from within emulationstation for it.
+set -euo pipefail
 CONFIGURE(){
 WORKINGDIR=/home/pi/RetroPie-Bgm
 
