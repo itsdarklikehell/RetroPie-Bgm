@@ -2,4 +2,4 @@
 echo " = = = = = = = = = = = = = = = = = = = = "
 echo " Starting Bgm-Player.py"
 echo " = = = = = = = = = = = = = = = = = = = = "
-sudo python ~/RetroPie-Bgm/Bgm-Player.py &
+sudo python3 ~/RetroPie-Bgm/Bgm-Player.py &
